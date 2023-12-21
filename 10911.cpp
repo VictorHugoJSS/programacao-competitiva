@@ -10,7 +10,7 @@ int main(){
 
     while(1){
 
-        
+
         cin >> tests_case;
         if (tests_case == 0){
             break;

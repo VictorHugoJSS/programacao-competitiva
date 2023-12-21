@@ -1,0 +1,15 @@
+// Sphere Online Judge
+// Question: Quadrado ( PT-BR )
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int x;
+
+    cin >> x;
+
+    cout << x*x << "\n";
+    return 0;
+}
