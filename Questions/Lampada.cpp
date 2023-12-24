@@ -23,7 +23,12 @@ int main(){
         cin >> interrupt;
 
         if (interrupt == 1){
-            Lamp_A = 1;
+            if (Lamp_A == 1){
+                Lamp_A = 0;
+            }
+            else{
+                Lamp_A = 1;
+            }
         }
         else{
             swap(Lamp_A, Lamp_b);
