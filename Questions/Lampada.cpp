@@ -6,10 +6,10 @@
 
 using namespace std;
 
-void swap (int * x, int * y){
-    int t = *x;
-    *x = *y;
-    *y = t;
+void swap (int * a, int * b){
+    int t = *a;
+    *a = *b;
+    *b = t;
 }
 
 int main(){
@@ -22,13 +22,17 @@ int main(){
 
         cin >> interrupt;
 
-        if (interrupt == 1){
-            if (Lamp_A == 1){
-                Lamp_A = 0;
-            }
-            else{
-                Lamp_A = 1;
-            }
+        if (interrupt == 1 && Lamp_A == 0){
+            Lamp_A = 1;
+        }
+        else if (interrupt == 1 && Lamp_A == 1){
+            Lamp_A = 0;
+        }
+        else if (interrupt == 2 && Lamp_A == 0 && Lamp_b == 0){
+            Lamp_A = 1; Lamp_b = 1;
+        }
+        else if (interrupt == 2 && Lamp_A == 1 && Lamp_b == 1){
+            Lamp_A = 0; Lamp_b = 0;
         }
         else{
             swap(Lamp_A, Lamp_b);
