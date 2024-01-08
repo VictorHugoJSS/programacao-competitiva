@@ -1,20 +1,33 @@
+// Codeforces
+// Question: 151A - Soft Drinking
+// Student: Victor Hugo Jose Sales da Silva
+
 #include <bits/stdc++.h>
 
 using namespace std;
 
+int minor(int a, int b, int c){
+  int minorAB, minorABC;
+
+  minorAB = ((a+b) - abs(a-b)) / 2;
+  minorABC = ((minorAB+c) - abs(minorAB-c)) / 2;
+
+  return minorABC;
+}
+
 int main(){
     int n, k, l, c, d, p, nl, np;
-    int minorAB, minorABC;
-    
+    int l_per_friends, limes, salts_per_friends;
+    int min;
+
     cin >> n >> k >> l >> c >> d >> p >> nl >> np;
 
-    int toast_per_milli = (k * l) / n;
-    int toast_per_lime = c * d;
-    int toast_salt = p / np;
+    l_per_friends = (k * l) / nl;
+    limes = c * d;
+    salts_per_friends = p / np;
+    
+    min = minor (l_per_friends, limes, salts_per_friends);
 
-    minorAB = ((toast_per_milli+toast_per_lime) - abs(toast_per_milli-toast_per_lime))/2;
-    minorABC = ((minorAB+toast_salt) - abs(minorAB-toast_salt))/2;
-
-    cout << minorABC/n << "\n";
+    cout << min/n << "\n";  
     return 0;
 }
