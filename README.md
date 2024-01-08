@@ -1,1 +1,1 @@
-# programacao-competitiva
+# Programaçao Competitiva / Competitive Programming
