@@ -4,13 +4,14 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+typedef long long ll;
 
-int prime(long long number){
-	long long divisions = 0;
+int prime(ll number){
+	ll divisions = 0;
 
 	if (number == 1 || number == 0) { return 0; }
 
-	for (long long int i = 2; i <= sqrt(number) ; i++){
+	for (ll i = 2; i <= sqrt(number) ; i++){
 		if (number % i == 0){ return 1; }
 	}
 
@@ -18,7 +19,7 @@ int prime(long long number){
 }
 
 int main(){
-	long long selos;
+	ll selos;
 
 	ios::sync_with_stdio(0);
 	cin.tie(0);
