@@ -14,7 +14,7 @@ int main(){
   cin >> quant;
 
   int * tam = (int *) malloc(quant * sizeof(int));
-  char * dir = (char*) malloc(quant * sizeof(char*));
+  char * dir = (char*) malloc(quant * sizeof(char));
 
   for (int i = 0; i < quant; i++){
     cin >> *(tam+i) >> *(dir+i);
@@ -23,9 +23,13 @@ int main(){
   for (int i = 0; i < quant; i++){
     for (int j = i+1; j < quant; j++){
       if (tam[i] == tam[j] && dir[i] != dir[j]){
+        pair++;
       }
     }
   }
 
   cout << pair << "\n";
+  free(tam);
+  free(dir);
+  return 0;
 }
