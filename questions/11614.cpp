@@ -1,38 +1,23 @@
-// UVA ONLINE JUDGE
-// Question: 11614
-
+// UVA Online Judge
+// Question: 11614 - Etruscan Warriors Never Play Chess
+// Student: Victor Hugo Jose Sales da Silva
 #include <bits/stdc++.h>
 
-using namespace std;
-typedef long long int ll;
-
-ll rows(ll n){
-    ll q = n, row = 0, i = 1;
-
-    while (q != 1){
-        q /= i;
-        row++;
-        i++;
-    }
-
-    if (n > 9){
-        return row+1;
-    }
-
-    return row;
-}
+typedef unsigned long long ull;
 
 int main(){
-    int tests;
+  int TC;
 
-    cin >> tests;
+  scanf("%d", &TC);
 
-    for (int i = 0; i < tests; i++){
-        ll warriors;
+  while(TC--){
+    ull warriors, teams;
 
-        cin >> warriors;
+    scanf("%llu", &warriors);
+  
+    teams = (-1 + sqrt(1+8*warriors)) / 2;
 
-        cout << rows(warriors) << "\n";
-    }
-    return 0;
+    printf("%llu\n", teams);
+  }  
+  return 0;
 }
