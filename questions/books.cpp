@@ -25,22 +25,19 @@ void quick_sort(int * arr,int low, int high){
   }
 }
 
-int bs(int * arr,int size, int time){
+int bs(int * arr, int size, int time){
   int a = 0, b = size-1;
   int k, minutes = 0, books = 0;
 
-  while (a <= b){
-    k = (a+b)/2;
-
-    if (arr[k] + minutes > time){ return books; }
-    if (arr[k] + minutes <= time){
-      minutes += k;
+  while ( a <= b ){
+    k = (a+b) / 2;
+    if ( arr[k] + minutes == time ){
       books++;
-      b = k-1;
+      break;
     }
-    else{
-      a = k+1;
-    } 
+    if (arr + minutes < time){
+            
+    }
   }
   return books;
 }

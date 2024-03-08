@@ -4,37 +4,42 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-vector <pair<int, char>> vic;
 
-int boots(int size){
-  int pairs = 0;
+int main(){
+  ios::sync_with_stdio(false);
+  cin.tie(NULL);
 
-  for (int i = 0; i < size; i++){
-    for (int j = i+1; j < size; j++){
-      if (vic[i].first == vic[j].first && vic[i].second != vic[j].second){
-        pairs++;
-      }
-    }
+  int tc, total = 0;
+  int esq[61], dir[61];
+
+  cin >> tc;
+
+  for (int i = 30; i <= 60; i++){
+    dir[i] = 0;
+    esq[i] = 0;
   }
 
-  return pairs;
-}
-int main(){
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-
-  int tc, total;
-  scanf("%d", &tc);
-
-  for (int i = 0; i < tc; i++){
+  while (tc--){
     int tam;
     char l;
     cin >> tam >> l;
-    vic.push_back({tam, l});
+    if (l == 'E'){
+      esq[tam]++;
+    }
+    else{
+      dir[tam]++;
+    }
   }
 
-  total = boots(tc);
+  for (int i = 30; i <= 60; i++){
+    if (esq[i] < dir[i]){
+      total += esq[i];
+    }
+    else{
+      total += dir[i];
+    }
+  }
 
-  printf("%d\n", total);
+  cout << total << "\n";
   return 0;
 }

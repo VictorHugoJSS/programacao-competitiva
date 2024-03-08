@@ -10,10 +10,10 @@ int main(){
     scanf("%d", &TC);
 
     while (TC--){
-        int row, col;
+        int row, col, sonar;
         scanf("%d %d", &row, &col);
-
-        printf("%d\n");
+        sonar = 0;
+        printf("%d\n", sonar);
     }
     return  0;
 }

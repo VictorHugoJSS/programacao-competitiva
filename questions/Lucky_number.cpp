@@ -7,18 +7,18 @@
 using namespace std;
 
 int main(){
-  string number;
-  int i = 0, lucky_number = 0;
+  string number, t;
+  int i = 0, lucky_number = 0, total = 0;
   getline(cin, number);
   
-  while (number[i] != '\n'){
+  for (int i = 0; i < number.size(); i++){
     if (number[i] == '7' || number[i] == '4'){
       lucky_number += 1;
     }
-    i++;
   }
+  t = to_string(lucky_number);
 
-  if (lucky_number == 4 || lucky_number == 7 || lucky_number == 47 || lucky_number == 744){
+  if (t[0] == '4' || t[0] == '7'){
     cout << "YES\n";
   }
   else{

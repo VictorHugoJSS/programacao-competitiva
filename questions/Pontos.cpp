@@ -3,18 +3,26 @@
 // Student: Victor Hugo Jose Sales da Silva
 #include <bits/stdc++.h>
 
+using namespace std;
+
 int main(){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
   int TC;
-  long somaX = 0, somaY = 0;
+  long subX = 0, subY = 0;
   double total;
-  scanf("%d", &TC);
+
+  cin >> TC;
+
   while (TC--){
     int x, y;
-    scanf("%d %d", &x, &y);
-    somaX = x - somaX;
-    somaY = y - somaY;
-  }
-  total = pow(somaX, 2) + pow(somaY, 2);
-  printf("%.3lf\n", sqrt(total));
+    cin >> x >> y;
+    subX = x - subX;
+    subY = y - subY
+  
+
+  total = hypot(subX, subY);
+  printf("%.3lf\n", total);
   return 0;
 }

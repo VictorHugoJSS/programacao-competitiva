@@ -9,39 +9,27 @@ int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int d, sum = 0, max = 0;
-  cin >> d;
-  int m[d][d];
+  int size, i = 0, j = 0, k = 0;
+  cin >> size;
+  int v[size][size], best = 0;
 
-  for (int i = 0; i < d; i++){
-    for (int j = 0; j < d; j++){
-      cin >> m[i][j];
+  for (int i = 0; i < size; i++){
+    for (int j = 0; j < size; j++){
+      cin >> v[i][j];
     }
   }
-  
-  for (int i = 0; i < d; i++){
-    
-    for (int j = 0; j < d; j++){
-      if (j == i){
-        continue;
-      }
-      sum += m[j][i];
+
+  while (i <= size-1){
+    int sum = 0;
+    for (j = 0; j < size; j++){
+      if (j == k) {continue;}
+      sum += v[k][j];
+      sum += v[j][k];
     }
-
-    for (int j = 0; j < d; j++){
-      if (j == i){
-        continue;
-      }
-
-      sum += m[i][j];
-    }
-
-    if (sum > max){
-      max = sum;
-    }
-
-    sum = 0;
+    best = sum > best ? sum:best;
+    k = k < size ? k++ : 0;
+    i = k == size-1 ? i:i++;
   }
-  cout << max  << "\n";
+  cout << best << "\n";
   return 0;
 }

@@ -1,18 +1,39 @@
-// Sphere Online Judge
-// Question: Estagio
-// Student: Victor Hugo Jose Sales da Silva
-#include <bits/stdc++.h>
+#include <iostream>
 
-const int MAX_Alunos = 1000;
+using namespace std;
+const int MAX_ALUNOS = 1000;
 
-typedef struct alunos{
-  int codigo, media;
-}alunos[MAX_Alunos];
+int main()
+{
+  int i, indice_melhor, n;
+  int turma=1;
+  struct
+  {
+    int codigo, media;
+  } alunos[MAX_ALUNOS];
+  // le numero de alunos da primeira turma
+  cin >> n;
+  while (n > 0)
+    {
+      // le dados dos alunos
+      for (i = 0; i < n; i++)
+         cin >> alunos[i].codigo >> alunos[i].media;
 
-int main(){
-  int n;
+      cout << "Turma " << turma++ << "\n";
+      // procura aluno de maior media
+      indice_melhor = 0;
+      for (i = 1; i < n; i++)
+         if (alunos[i].media > alunos[indice_melhor].media)
+             indice_melhor = i;
 
-  while (scanf("%d", &n) && n != 0){
-    
-  }
+      for (int i = 0; i < n; i++){
+        if (alunos[i].media == alunos[indice_melhor].media){
+           cout << alunos[i].codigo << " ";
+        }
+      }
+      cout << "\n\n";
+      // le numero de alunos da proxima turma
+      cin >> n;
+    }
+  return 0;
 }
