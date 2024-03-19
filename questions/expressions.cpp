@@ -63,7 +63,15 @@ int main(){
 	cin >> tc;
 
 	while(tc--){
-		
+		char * s = (char *) malloc(10000 * sizeof(char));
+		scanf("%s", s);
 
+		if (verify(s)){
+			printf("S\n");
+		}
+		else{
+			printf("N\n");
+		}
+		free(s);
 	}
 }
