@@ -5,9 +5,18 @@
 
 using namespace std;
 
+long long int lucro(int quant, int comp){
+  long long int total;
+
+  for (int i = 0; i < )
+}
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
 
-  int c
+  long long int comp, quant, sum;
+
+  cin >> comp >> quant;
+
+  sum = lucro();
 }

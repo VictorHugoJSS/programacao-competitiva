@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+string v;
 
-int iguality (string v,int begin, int end){
+int iguality (int begin, int end){
   int quant = 0;
   for (int i = begin; i < end; i++){
     if (v[i] == v[i-1]){
@@ -11,11 +12,11 @@ int iguality (string v,int begin, int end){
   }
   return quant;
 }
+
+
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
-
-  string v;
   int tc;
 
   getline(cin, v);
@@ -25,7 +26,7 @@ int main(){
     int x, y;
     cin >> x >> y;
 
-    cout << iguality(v,x,y) << "\n";
+    cout << iguality(x,y) << "\n";
   }
 
   return 0;
