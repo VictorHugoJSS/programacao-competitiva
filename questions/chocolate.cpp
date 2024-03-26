@@ -12,11 +12,11 @@ int main(){
 
     cin >> quant >> choc_p_round;
 
-    if (quant % choc_p_round != 0){
-        cout << "Paula\n";
+    if (quant % (choc_p_round+1) == 0){
+        cout << "Carlos\n";
     }
     else{
-        cout << "Carlos\n";
+        cout << "Paula\n";
     }
     return 0;
 }
