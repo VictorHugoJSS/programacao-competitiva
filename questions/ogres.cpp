@@ -3,5 +3,9 @@
 using namespace std;
 
 int main(){
-    int
+    int n, m;
+
+    scanf("%d %d", &n, &m);
+
+    
 }

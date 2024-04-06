@@ -5,12 +5,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+vector <pair<int, int>> vii;
 
-void swap (int *x, int *y){
-  int t = *x;
-  *x = *y;
-  *y = t;
-}
 int main(){
   ios::sync_with_stdio(0);
   cin.tie(0);
@@ -20,22 +16,23 @@ int main(){
 
   cin >> s >> enemies;
 
-  while (enemies--){
+  for (int i = 0; i < enemies; i++){
     cin >> monster >> xp;
+    vii.push_back({monster, xp});
+  }
+  sort(vii.begin(), vii.end());
 
-    if (xp < monster){
-      swap(&monster, &xp);
-    }
-
-    if (monster < s){
-      s += xp;
+  for (int i = 0; i < enemies; i++){
+    if (s > vii[i].first){
+      s += vii[i].second;
       confirm = 1;
     }
     else{
       confirm = 0;
+      break;
     }
   }
-
+  
   if (confirm){
     printf("YES\n");
   }
