@@ -31,12 +31,14 @@ int bs(int * arr, int size, int time){
 
   while ( a <= b ){
     k = (a+b) / 2;
-    if ( arr[k] + minutes == time ){
+
+    if (arr[k] + minutes <= time){
+      minutes += arr[k];
       books++;
-      break;
+      b = k-1;
     }
-    if (arr + minutes < time){
-            
+    else{
+      a = k+1;
     }
   }
   return books;
