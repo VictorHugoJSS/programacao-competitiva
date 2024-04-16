@@ -3,15 +3,11 @@
 using namespace std;
 
 int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    
     int it, total;
-
-    cin >> it;
     
-    total = ;
+    cin >> it;
 
+    total = (pow(2, it)+1) * (pow(2, it)+1);
+    
     cout << total << "\n";
-    return 0;
 }

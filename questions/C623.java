@@ -5,7 +5,7 @@
 import java.util.Scanner;
 import java.math.BigInteger;
 
-public class Main{
+public class C623{
   public static void main ( String args[] ){
     Scanner scan = new Scanner(System.in);
     int number;

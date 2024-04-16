@@ -1,7 +1,7 @@
 import java.util.*;
 import java.math.*;
 
-public class Main{
+public class C10579{
     static BigInteger fib(int n){
         BigInteger[] fibo = new BigInteger[10000000];
         fibo[0] = BigInteger.valueOf(0);
