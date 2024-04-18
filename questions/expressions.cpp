@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 #define n 3
 using namespace std;
+
 char closed[n] = {')', ']', '}'};
 char open[n] = {'(', '[', '{'};
+
 int is_open(char c){
 	for (int i = 0; i < n; i++){
 		if (c == open[i]){
