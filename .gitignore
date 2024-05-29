@@ -1,4 +1,5 @@
 *.out
+*.exe
 *.o
 build
 .vscode/*.json
