@@ -12,21 +12,31 @@ int main(){
 
 	while (tc--){
 		cin >> row >> col;
-		int v[row][col];
+		char v[row][col];
 		for (int i = 0; i < row; i++){
 			for (int j = 0; j < col; j++){
 				cin >> 	v[i][j];
 			}
 		}
 
-		for (int i = 0; i < rol;i++){
-			if ()
+		for (int i = 0; i < col; i++){
+			if (v[0][i] == '0' || v[col-1][i] == '0'){
+				total += 1;
+			}
 		}
-		if (total >= ((row * col)/2)){
-			cout << "-1\n";
+
+		for (int i = 0; i < row; i++){
+			if (v[i][0] == '0' || v[i][col-1] == '0'){
+				total += 1;
+			}
+		}
+		
+		if (total >= row || total >= col){
+			printf("-1\n");
 		}
 		else{
-			cout << total << "\n";
+			printf("%d\n", total);
 		}
+		total = 0;
 	}
 }
