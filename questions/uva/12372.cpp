@@ -1,26 +1,21 @@
-// UVA ONLINE JUDGE
-// Question: 12372
-
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main(){
-	int tests;
+  int tc, i = 1;
+  int l,w,h;
 
-	cin >> tests;
-
-	for (int i = 0; i < tests; i++){
-		int L, W, H;
-
-		cin >> L >> W >> H;
-
-		if ((L <= 20) && (W <= 20) && (H <= 20)){
-			cout << "Case " << i+1 << ": good" << endl;
-		}
-		else{
-			cout << "Case " << i+1 << ": bad" << endl; 
-		}
-	}
-	return 0;
+  scanf("%d", &tc);
+  
+  while (tc--){
+    scanf("%d %d %d", &l, &w, &h);
+    if (l <= 20 && w <= 20 && h <= 20){
+      printf("Case %d: good\n", i++);
+    }
+    else{
+      printf("Case %d: bad\n", i++);
+    }
+  }
+  return 0;
 }
