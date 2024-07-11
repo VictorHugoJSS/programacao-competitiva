@@ -22,7 +22,7 @@ int main(){
 
     while (n.compare("0") != 0){
 
-        cout << g(n);
+        cout << g(n) << "\n";
         getline(cin, n);
     }
 
