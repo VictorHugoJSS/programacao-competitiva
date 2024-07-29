@@ -1,23 +1,31 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+map<int,int> o;
+map<int,int> p;
+map<int,int> b;
 
+void posicoes(int *arr){
+    int max_ouro =INT_MIN;
+    int max_prata = INT_MIN,max_bronze = INT_MIN; 
+}
 int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
 
     int paises, modalidades;
 
-    cin >> paises >> modalidades;
+    scanf("%d %d", &paises, &modalidades);
 
     int ouro, prata, bronze;
-    int o[paises+1], p[paises+1], b[paises+1];
+    
 
     for (int i = 0; i < modalidades; i++){
-        cin >> ouro >> prata >> bronze;
+        scanf("%d %d %d", &ouro, &prata, &bronze);
 
         o[ouro]++;
         p[prata]++;
         b[bronze]++;
     }
+    int pos[paises];
+
+
 }

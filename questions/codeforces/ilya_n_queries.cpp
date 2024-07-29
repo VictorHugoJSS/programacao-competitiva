@@ -1,32 +1,31 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+int same[100001] = {0};
 
-int iguality (string v,int begin, int end){
-  int quant = 0;
-  for (int i = begin; i < end; i++){
+void iguality (string v){
+  for (int i = 1; i < v.size(); i++){
     if (v[i] == v[i-1]){
-      quant++;
+      same[i] = same[i-1]+1;
+    }
+    else{
+      same[i] = same[i-1];
     }
   }
-  return quant;
 }
 
-
 int main(){
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-
   int tc;
   int x, y;
   string v;
 
   getline(cin, v);
-  cin >> tc;
+  iguality(v);
+  scanf("%d", &tc);
 
   while (tc--){
-    cin >> x >> y;
-    printf("%d\n", iguality(v,x,y));
+    scanf("%d %d", &x, &y);
+    printf("%d\n", same[y-1]-same[x-1]);
   }
 
   return 0;

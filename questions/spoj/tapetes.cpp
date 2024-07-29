@@ -4,17 +4,19 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+typedef unsigned long int lu;
 
 int main(){
-  ios::sync_with_stdio(0);
-  cin.tie(0);
 
-  long long int comp, quant, sum;
+  lu comp, quant;
 
-  cin >> comp >> quant;
+  scanf("%lu %lu", &comp, &quant);
+  
+  lu sum = 0;
 
-  sum =  comp * (quant-1);
-
+  for (lu i = 1; i <= quant-1 ; i++){
+    sum = max(sum+((i*i)), sum);
+  }
   cout << sum << "\n";
   return 0;
 }
