@@ -23,6 +23,7 @@ char get_open(char c){
 	}
 	return ' ';
 }
+
 int verify(string t){
 	string v;
 	char a, c, expect;

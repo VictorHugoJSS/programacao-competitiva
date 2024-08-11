@@ -1,7 +1,20 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-int total = 0;
+
+int bubble_sort(int *arr, int size){
+   int ans = 0;
+
+   for (int i = 0; i < size-1; i++){
+      for (int j = 0; j < size-1-i; j++){
+         if (arr[j] > arr[j+1]){
+            swap(arr[j], arr[j+1]);
+            ans++;
+         }
+      }
+   }
+
+   return ans;
+}
 
 int main(){
    int size;
@@ -11,21 +24,11 @@ int main(){
    while (size){
       int values[size];
 
-      for (int i = 0; i < size; i++){
-         scanf("%d", &values[i]); 
+      for (int j = 0; j < size; j++){
+         scanf("%d", &values[j]); 
       }
 
-      for (int i = 0; i < size-1; ++i){
-         for (int j = 0; j < size-i-1; ++j){
-            if (values[j] > values[j+1]){
-               swap(values[j],values[j+1]);
-               total++;
-            }
-         }
-      }
-
-      printf("There are %d swap maps for input data set %d\n", total, i++);
-      total = 0;
+      printf("There are %d swap maps for input data set %d\n", bubble_sort(values, size),i++);
       scanf("%d", &size);
    }
 }

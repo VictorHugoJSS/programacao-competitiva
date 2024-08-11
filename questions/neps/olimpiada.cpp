@@ -1,31 +1,38 @@
 #include <bits/stdc++.h>
-
+#define MAX 101
 using namespace std;
-map<int,int> o;
-map<int,int> p;
-map<int,int> b;
 
-void posicoes(int *arr){
-    int max_ouro =INT_MIN;
-    int max_prata = INT_MIN,max_bronze = INT_MIN; 
+struct olimpiadas{
+    int ouro = 0;
+    int prata = 0;
+    int bronze = 0; 
+};
+
+int position[MAX];
+
+void selection(olimpiadas *paises, int qtd){
+    int max = INT_MIN;
+
+    for (int i = 0; i < )
 }
 int main(){
+    int qtd_paises, qtd_modalidades;
+    int i = 0, j = 0;
+    scanf("%d %d", &qtd_paises, &qtd_modalidades);
 
-    int paises, modalidades;
+    int o, p, b;
+    olimpiadas *paise = (olimpiadas *) malloc((qtd_paises+1) * sizeof(olimpiadas));
+    while (i < qtd_modalidades){
+        scanf("%d %d %d", &o, &p, &b);
 
-    scanf("%d %d", &paises, &modalidades);
+        paise[o].ouro++;
+        paise[p].prata++;
+        paise[b].bronze++;
 
-    int ouro, prata, bronze;
-    
-
-    for (int i = 0; i < modalidades; i++){
-        scanf("%d %d %d", &ouro, &prata, &bronze);
-
-        o[ouro]++;
-        p[prata]++;
-        b[bronze]++;
+        i++; 
     }
-    int pos[paises];
 
 
+    free(paise);
+    return 0;
 }
