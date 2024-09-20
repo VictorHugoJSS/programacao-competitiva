@@ -2,5 +2,5 @@
 *.exe
 *.o
 build
-.vscode/*.json
-.idea
+.vscode/
+.idea/
