@@ -26,21 +26,13 @@ void quick_sort(int * arr,int low, int high){
 }
 
 int bs(int * arr, int size, int time){
-  int a = 0, b = size-1;
-  int k, minutes = 0, books = 0;
+  int a = 0, b = size - 1;
 
-  while ( a <= b ){
-    k = (a+b) / 2;
+  while ( a < b ){
 
-    if (arr[k] + minutes <= time){
-      minutes += arr[k];
-      books++;
-      b = k-1;
-    }
-    else{
-      a = k+1;
-    }
+
   }
+
   return books;
 }
 int main(){
