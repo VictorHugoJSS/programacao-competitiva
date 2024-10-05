@@ -2,5 +2,5 @@
 *.exe
 *.o
 build
-.vscode/
+questions/.vscode/
 .idea/
