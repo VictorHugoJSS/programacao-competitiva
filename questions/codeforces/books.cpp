@@ -2,46 +2,84 @@
 
 using namespace std;
 
-int partition (int * arr,int low, int high){
-  int pivot = arr[high];
-  int i = (low-1);
-
-  for (int j = low; j <= high; j++){
-    if (arr[j] < pivot){
-      i++;
-      swap(arr[i], arr[j]);
+int getMax(vector<int> &arr, int n){
+  int mx = arr[0];
+  for (int i = 1; i < n; i++){
+    if (arr[i] > mx){
+      mx = arr[i];
     }
   }
-  swap(arr[i+1], arr[high]);
 
-  return (i+1); 
+  return mx;
 }
 
-void quick_sort(int * arr,int low, int high){
-  if (low < high){
-    int pi = partition(arr, low, high);
-    quick_sort(arr ,low, pi-1);
-    quick_sort(arr ,pi+1, high);
+void countSort(vector<int> &arr, int n, int exp){
+  int output[n];
+  int i, count[10] = { 0 };
+
+  for (i = 0; i < n; i++){
+    count[(arr[i]/exp) % 10]++;
+  }
+
+  for (i = 1; i < 10; i++){
+    count[i] += count[i-1];
+  }
+
+  for (i = n-1; i >= 0; i--){
+    output[count[(arr[i]/exp) % 10] - 1] = arr[i];
+    count[(arr[i]/exp) % 10]--;
+  }
+
+  for (i = 0; i < n; i++){
+    arr[i] = output[i];
   }
 }
 
-int bs(int * arr, int size, int time){
-  int a = 0, b = size - 1;
+void radixsort(vector<int> &arr, int n){
+  int m = getMax(arr, n);
 
-  while ( a < b ){
-
-
+  for (int exp = 1; m / exp > 0; exp *= 10){
+    countSort(arr, n, exp);
   }
-
-  return books;
 }
+
+int bs(vector<int> &arr, int size, int time){
+  int minutes = 0;
+  int count = 0;
+
+  for (int i = 0; i < size/2; i++){
+    if (arr[i] + minutes <= time){
+      minutes += arr[i];
+      count++;
+    }
+
+    if (arr[size-1-i] + minutes <= time){
+      minutes += arr[size-1-i];
+      count++;
+    }
+  }
+  
+  return count;
+}
+
 int main(){
-  int n, t;
-  scanf("%d %d", &n, &t);
-  int numbers[n];
+  int n, k;
+
+  scanf("%d %d", &n, &k);
+
+  vector<int> arr(n);
+
   for (int i = 0; i < n; i++){
-    scanf("%d", &numbers[i]);
+    scanf("%d", &arr[i]);
   }
-  quick_sort(numbers, 0, n-1);
-  printf("%d\n", bs(numbers,n, t));  
+
+  if (n == 1 && arr[0] <= k){
+    printf("1\n");
+    return 0;
+  }
+  radixsort(arr, n);
+
+  printf("%d\n", bs(arr, n, k));
+  
+  return 0;
 }
