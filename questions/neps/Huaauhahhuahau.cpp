@@ -1,61 +1,54 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int is_vowel (char a){
-  switch(a){
-    case 'a':
-    case 'e':
-    case 'i':
-    case 'o':
-    case 'u': return 1; break;
-  }
-  return 0;
-}
+char vowel[5] = {'a', 'e', 'i', 'o', 'u'};
 
-string vowel(string o, string v){
-
-  for (int i = 0; i < o.size(); i++){
-    if (is_vowel(o[i])){
-      v.push_back(o[i]);
+bool is_vowel(char a){
+    for (int i = 0; i < 5; i++){
+        if (a == vowel[i]){
+            return true;
+        }
     }
-  }
-  return v;
+    return false;
 }
-string reverse(string o, string r){
 
-  for (int i = 0; i < o.size(); i++){
-      r.push_back(o[o.size()-i-1]);
-  }
-  return r;
+string only_vowel(string a){
+    string v;
+    
+    for (int i = 0; i < a.size(); i++){
+        if (is_vowel(a[i])){
+            v.push_back(a[i]);
+        }
+    }
+    
+    return v;
+}
+
+string reverse(string a){
+    string r;
+    
+    for (int i = 0; i < a.size(); i++){
+        r += a[a.size()-1-i];
+    }
+    
+    return r;
 }
 
 int main(){
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-
-  string o, vowels, reverseVowels;
-  int confirm = 0;
-
-  getline(cin, o);
-  vowels = vowel(o, vowels);
-  reverseVowels = reverse(vowels, reverseVowels);
-
-  for (int i = 0; i < vowels.size(); i++){
-    if (vowels[i] == reverseVowels[i]){
-      confirm = 1;
+    string t, vowel, rvowel;
+    
+    getline(cin, t);
+    
+    vowel = only_vowel(t);
+    rvowel = reverse(vowel);
+    
+    for (int i = 0; i < vowel.size(); i++){
+        if (vowel[i] != rvowel[i]){
+            printf("N\n");
+            return 0;
+        }
     }
-    else{
-      confirm = 0;
-    }
-  }
-
-  if (confirm){
-    cout << "S\n";
-  }
-  else{
-    cout << "N\n";
-  }
-
-  return 0;
+    
+    printf("S\n");
+    return 0;
 }
