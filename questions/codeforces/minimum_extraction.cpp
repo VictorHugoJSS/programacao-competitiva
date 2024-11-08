@@ -2,64 +2,38 @@
 
 using namespace std;
 
+int minor(vector <int> &arr){
+  int mn = INT_MAX, pos;
 
-typedef struct{
-  int q[100001];
-  int n;
-}p_queue;
-
-int pq_parent(int n){
-  if (n == 1){
-    return -1;
-  }
-  return ((int) n/2);
-}
-
-int pq_child(int n){
-  return (2*n+1);
-}
-
-void bubble_up(p_queue *arr, int p){
-  if (pq_parent(p) == -1){
-    return;
+  for (pos = 0; pos < arr.size(); pos++){
+    mn = min(arr[pos], mn);
   }
 
-  if(arr->q[pq_parent(p)] > arr->q[p]){
-    
-  }
-}
-void pq_insert(p_queue *arr, int x){
-  if (arr->n >= 100001){
-    printf("error\n");
-  }
-  else{
-    arr->n = (arr->n)+1;
-    arr->q[arr->n] = x;
-    
-  }
+  arr.erase(arr.begin()+pos);
+  return mn;
 }
 
 int main(){
-    int n;
-    p_queue arr;
+  int tc;
+  
+  scanf("%d", &tc);
 
-    scanf("%d", &n);
-    
-    while (n--){
-        int size;
-        
-        scanf("%d", &size);
-        
-        for (int i = 0; i < size; i++){
-          int temp;
-          scanf("%ld", &temp);
-        }
-        
-        if (size == 1){
-            printf("%ld\n", arr[0]);
-        }
-        else{
+  while (tc--){
+    int size;
 
-        }
+    scanf("%d", &size);
+
+    vector<int> arr(size);
+
+    for (int i = 0; i < size; i++){
+      scanf("%d", &arr[i]);
     }
+
+    if (size == 1){
+      printf("%d", arr[0]);
+    }
+    else{
+      
+    }
+  }
 }
