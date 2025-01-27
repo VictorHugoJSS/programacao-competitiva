@@ -3,4 +3,5 @@
 *.o
 build
 questions/.vscode/
+.vscode/
 .idea/
