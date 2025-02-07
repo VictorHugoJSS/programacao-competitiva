@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
-#define MAX 1000000000
 
 using namespace std;
-
-int memo[MAX];
 
 int main(){
     int tc;
@@ -11,15 +8,18 @@ int main(){
     scanf("%d", &tc);
 
     while (tc--){
-        long long moves = 0;
+        long long moves;
         long long a, b;
 
         scanf("%lld %lld", &a, &b);
 
-        while ((a+moves)%b != 0){
-            moves++;
+        if (a%b == 0){
+            printf("0\n");
+            continue;
         }
 
-        printf("%lld\n", moves);
+        int div = a/b;
+        moves = (div+1)*b;
+        printf("%lld\n", moves-a);
     }   
 }
