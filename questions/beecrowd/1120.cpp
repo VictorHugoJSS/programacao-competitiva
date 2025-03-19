@@ -1,21 +1,53 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
-string String_Correction(string number, char digit){
-
-}
+void removedefeito(char*, char);
+void changechar (char*);
 
 int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+    char ch, number[1001];
+    while (1){
 
-    char digit;
-    string number;
+        scanf(" %c", &ch);
+        getchar();
+        fgets(number, 1001, stdin);
 
-    cin >> digit >> number;
+        if (ch == '0' && number[0] == '0'){
+            break;
+        }
 
-    while ( digit != '0' || number.compare("0") != 0 ){
-        
-        cin >> digit >> number;
+        removedefeito(number, ch);
+        changechar(number);
+
+        printf("%s", number);
     }
+}
+
+void removedefeito (char *s, char ch){
+    int i;
+    for (i = 0; s[i] != '\0'; i++){
+        if (s[i] == ch) {
+            s[i] = 'A';
+        }
+    }
+}
+void changechar (char *s){
+    int i = 0, j = 0;
+    while (s[i]){
+        if (s[i] != 'A'){
+            s[j++] = s[i];
+        }
+        i++;
+    }
+    if (j == 0){
+        s[j] = '0';
+    }
+    i = j = 0;
+    while (s[i] == '0'){
+        i++;
+    }
+    while (s[i]){
+        s[++j] = s[i++];
+    }
+    s[j] = '\0';
 }

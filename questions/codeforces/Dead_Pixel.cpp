@@ -19,8 +19,7 @@ int main(){
 		ll dist3 = (a-x-1) * b;
 		ll dist4 = a * (b-y-1);
 
-		ll ans = max(dist1, dist2);
-		ans = max(ans, max(dist3, dist4));
+		ll ans = max(max(dist1, dist2), max(dist3,dist4));
 
 		printf("%lld\n", ans);
 	}

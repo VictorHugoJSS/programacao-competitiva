@@ -2,20 +2,24 @@
 using namespace std;
 
 int main(){
-    map <char, long int> characters;
     string t;
-    long int mx = INT_MIN;
+    int mx = 1;
 
     cin >> t;
 
-    for (size_t i = 0; i < t.size(); i++){
-        characters[t[i]]++;
+    for (int i = 0; i < t.size(); i++){
+        int count = 0;
+
+        for (int j = i+1;  j < t.size(); i++){
+            if (t[i] != t[j]){
+                break;
+            }
+            count++;
+        }
+
+        mx = max(mx, count);
     }
 
-    for (auto i : characters){
-        mx = max(mx, i.second);
-    }
-
-    printf("%ld\n", mx);
+    printf("%d\n", mx);
     return 0;
 }
