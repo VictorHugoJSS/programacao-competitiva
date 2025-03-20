@@ -2,23 +2,54 @@
 // Question: Encontre o telefone
 // Student: Victor Hugo Jose Sales da Silva
 #include <bits/stdc++.h>
-
-void text_for_number(char * arr, int size){
-  for (int i = 0; i < size; i++){
-    if (arr[i] == 'A' || arr[i] == 'B' || arr[i] == 'C'){
-      arr[i] = (char) 50;
+ 
+using namespace std;
+ 
+char digit(char a){
+    switch(a){
+        case 'A':
+        case 'B':
+        case 'C': return '2';
+        case 'D':
+        case 'E':
+        case 'F': return '3';
+        case 'G':
+        case 'H':
+        case 'I': return '4';
+        case 'J':
+        case 'K':
+        case 'L': return '5';
+        case 'M':
+        case 'N':
+        case 'O': return '6';
+        case 'P':
+        case 'Q':
+        case 'R':
+        case 'S': return '7';
+        case 'T':
+        case 'U':
+        case 'V': return '8';
+        default: return '9';
     }
-    else if (arr[i] == 'D' || arr[i] == 'E' || arr[i] == 'F'){
-      arr[i] = (char) 51;
-    }
-    else if (arr[i] == )
-  }
+    return ' ';
 }
 int main(){
-  char s[30];
-  while (scanf("%[^\n]", s) != EOF){
-    int size = strlen(s);
-    text_for_number(s, size);
-    printf("%s\n", s);
-  }
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    string t, n;
+    
+    while (getline(cin, t)){
+        for (int i = 0; i < t.size(); i++){
+            if (isalpha(t[i])){
+                n.push_back(digit(t[i]));
+            }
+            else{
+                n.push_back(t[i]);
+            }
+        }
+        cout << n << "\n";
+        n.clear();
+    }
+    return 0;
 }
