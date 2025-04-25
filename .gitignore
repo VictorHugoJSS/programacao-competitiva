@@ -1,1 +1,4 @@
-questions/.vscode/tasks.json
+./questions/.vscode/tasks.json
+./questions/codeforces/input
+./questions/uva/in
+./questions/uva/out
