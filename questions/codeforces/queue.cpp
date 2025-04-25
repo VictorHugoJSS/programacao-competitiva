@@ -19,7 +19,7 @@ int main(){
             change += k; 
         }
         else{
-            if (change >= (student - k)){
+            if (change > (student - k)){
                 change -= student - k;
             }
             else{

@@ -2,67 +2,51 @@
 
 using namespace std;
 
-struct pocket{
-    int type = -1;
-    int quant = 0;
-};
-
-bool zero(vector<int> arr){
-    for (int i : arr){
-        if (i != 0){
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int main(){
-    pocket arr[2];
-    int n, k;
-    
+    int n, k, days = 0;
+
     scanf("%d %d", &n, &k);
-    vector <int> pebbles(n);
-    
+
+    vector<int> pebbles(n);
+    vector<pair<int,int>> bolsos(n);
+
+
     for (int i = 0; i < n; i++){
         scanf("%d", &pebbles[i]);
     }
-    
-    int day = 0;
 
-    while (!zero(pebbles)){
-        for (int i = 0; i < pebbles.size(); i++){
-            if (arr[0].quant < k && arr[0].type == -1){
+    int i = 0, j = 0;
+
+    while (i < n){
+
+        while (pebbles[i] != 0){
+
+            if (bolsos[j].first < k){
                 if (pebbles[i] >= k){
-                    arr[0].quant += k;
-                    arr[0].type = i;
+                    bolsos[j].first += k;
                     pebbles[i] -= k;
                 }
-                else if (pebbles[i] > 0){
-                    arr[0].quant += pebbles[i];
-                    arr[0].type = i;
+                else{
+                    bolsos[j].first += pebbles[i];
                     pebbles[i] = 0;
                 }
             }
-            else if (arr[1].quant < k && arr[1].type == -1){
+            else if (bolsos[j].second < k){
                 if (pebbles[i] >= k){
-                    arr[1].quant += k;
-                    arr[1].type = i;
+                    bolsos[j].second += k;
                     pebbles[i] -= k;
                 }
-                else if (pebbles[i] > 0){
-                    arr[1].quant += pebbles[i];
-                    arr[1].type = i;
+                else{
+                    bolso[j].second += pebbles[i];
                     pebbles[i] = 0;
                 }
             }
         }
-        day++;
-        arr[0].quant = 0;
-        arr[0].type = -1;
-        arr[1].quant = 0;
-        arr[1].type = -1;
+        
+        days++;
     }
-    printf("%d\n", day);
+
+    printf("%d\n", days);
+
     return 0;
 }
