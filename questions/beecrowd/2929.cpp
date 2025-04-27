@@ -4,12 +4,12 @@ using namespace std;
 
 int main(){
     int tc;
-    vector<int> st;
+    vector<int> st, min;
 
     scanf("%d", &tc);
+    getchar();
 
     while(tc--){
-        int mn = INT_MAX;
         string t;
 
         cin >> t;
@@ -18,28 +18,34 @@ int main(){
             int temp;
             scanf("%d", &temp);
             st.push_back(temp);
-        }
-        else if(t.compare("MIN") == 0){
+            if (st.size() == 1){
+                min.push_back(temp);
+            }
 
-            if (st.empty()){
-                printf("EMPTY\n");
+            if (temp < min[min.size()-1]){
+                min.push_back(temp);
             }
             else{
-                for (int i = 0; i < st.size(); i++){
-                    mn = min(mn, st[i]);
-                }
-                printf("%d\n", mn);   
+                min.push_back(min[min.size()-1]);
             }
         }
-        else if(t.compare("POP") == 0){
+        else if (t.compare("POP") == 0){
             if (st.empty()){
                 printf("EMPTY\n");
             }
             else{
                 st.pop_back();
+                min.pop_back();   
+            }
+        }
+        else{
+            if (st.empty()){
+                printf("EMPTY\n");
+            }
+            else{
+                printf("%d\n", min[min.size()-1]);
             }
         }
     }
-
     return 0;
 }
