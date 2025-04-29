@@ -2,3 +2,7 @@
 ./questions/codeforces/input
 ./questions/uva/in
 ./questions/uva/out
+./questions/uva/*.o
+./questions/codeforces/input
+./questions/codeforces/*.o
+./questions/beecrowd/in
