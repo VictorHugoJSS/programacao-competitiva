@@ -13,12 +13,12 @@ int main(){
   cin >> x >> y;
   cin >> l1 >> h1;
   cin >> l2 >> h2;
-  
-  if ((x - l1) < 0 || (x - l1 - l2) < 0 || (y - h1) < 0 || (y - l1 - l2) < 0){
-    cout << "N\n";
+
+  if (l1 + l2 <= x && max(h1, h2) <= y){
+    printf("S\n");
   }
-  else{
-    cout << "S\n";
+  else if (){
+    
   }
 
   return 0;

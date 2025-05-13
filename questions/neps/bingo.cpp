@@ -2,8 +2,6 @@
 
 using namespace std;
 
-vector <int> vi;
-
 int main(){
     int n, b, temp;
     scanf("%d %d", &n, &b);
