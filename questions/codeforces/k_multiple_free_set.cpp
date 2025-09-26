@@ -1,46 +1,23 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-typedef long long ll;
 
 int main(){
-	int n, k;
+    int n, k;
 
-	scanf("%d %d", &n, &k);
+    scanf("%d %d", &n, &m);
 
-	vector<ll> v(n), set;
-	for (int i = 0; i < n; i++){
-		scanf("%lld", &v[i]);
-	}
+    vector<int> v(n);
 
-	sort(v.begin(), v.end());
+    for (int i = 0; i < n; i++){
+        scanf("%d", &v[i]);
+    }
 
-	for (int j = 0; j < n; j++){
-		int a = 0, b = set.size()-1;
-		bool mult = false;
-	
-		while (a <= b){
-			int mid = (a+b)/2;
+    sort(v.begin(), v.end());
 
-			if (set[mid] * 2 == v[j]){
-				mult = true;
-				break;
-			}
-			else if (set[mid] * 2 > v[j]){
-				b = mid - 1;
-			}
-			else{
-				a = mid + 1;
-			}
-			
-		}
-		
-		if (!mult){
-			    set.push_back(v[j]);
-		}
-	}
-	printf("%d\n", set.size());
+    int a = 0, b = v.size()-1;
 
-	return 0;
+    while(a <= b){
 
-}	
+    
+}
